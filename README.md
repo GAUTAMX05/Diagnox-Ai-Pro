@@ -10,7 +10,7 @@ DiagnoX AI Pro is an AI-driven healthcare platform designed to assist users and 
 ![1](screenshots/1.png)<br/><br/>
 ![2](screenshots/2.png)<br/><br/>
 ![3](screenshots/3.png)<br/><br/>
-![4](screenshots/4.png)
+
 
 ## ✨ Features
 
