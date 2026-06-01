@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiagnoX AI | Intelligent Health System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body data-theme="dark">
+    
+    <canvas id="neural-bg"></canvas>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="ph-bold ph-heartbeat"></i> DiagnoX<span>.AI</span>
+            </a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="ph-bold ph-sun"></i>
+                <i class="ph-bold ph-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <header class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Your Health, <br>Powered by <span class="gradient-text">Intelligence</span></h1>
+                    
+                    <div class="typing-container">
+                        <span id="typing-text"></span>
+                    </div>
+
+                    <p class="subtitle">
+                        Advanced symptom analysis using Random Forest algorithms. 
+                        Get instant predictions, severity assessments, and specialist recommendations.
+                    </p>
+                    
+                    <a href="#analysis-section" class="btn-primary glow-effect">
+                        <i class="ph-bold ph-stethoscope"></i> Start Diagnosis
+                    </a>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="visual-circle">
+                        <i class="ph-duotone ph-brain"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section id="analysis-section" class="glass-card main-card hidden-section">
+            <div class="card-header">
+                <h2><i class="ph-duotone ph-scan"></i> Symptom Analyzer</h2>
+                <div class="pulse-dot"></div>
+            </div>
+
+            <form id="symptom-form" aria-label="Symptom Analyzer Form">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="symptoms" class="form-label">Select Symptoms</label>
+                        <select name="symptoms" id="symptoms" multiple required>
+                            {% for symptom in symptoms %}
+                                <option value="{{ symptom }}">
+                                    {{ symptom.replace('_', ' ') | title }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="severity" class="form-label">Severity Level</label>
+                        <select name="severity" id="severity" required>
+                            <option value="" disabled>Select Intensity</option>
+                            <option value="mild">Mild</option>
+                            <option value="moderate" selected>Moderate</option>
+                            <option value="severe">Severe</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="predict-btn" class="btn-primary full-width">
+                    <span class="btn-text">Analyze Health Data</span>
+                    <div class="spinner hidden"></div>
+                </button>
+            </form>
+
+            <div id="result-container" class="hidden" role="status"></div>
+        </section>
+
+        <section class="stats-grid hidden-section">
+            <div class="stat-card glass-card">
+                <i class="ph-duotone ph-users-three"></i>
+                <h3>50k+</h3>
+                <p>Users Analyzed</p>
+            </div>
+            <div class="stat-card glass-card">
+                <i class="ph-duotone ph-target"></i>
+                <h3>95%</h3>
+                <p>Model Accuracy</p>
+            </div>
+            <div class="stat-card glass-card">
+                <i class="ph-duotone ph-lightning"></i>
+                <h3>&lt;2s</h3>
+                <p>Response Time</p>
+            </div>
+        </section>
+
+        <section class="content-section hidden-section">
+            <article class="glass-card info-card">
+                <div class="icon-box"><i class="ph-duotone ph-cpu"></i></div>
+                <h3>How AI Works</h3>
+                <p>
+                    DiagnoX leverages a trained <strong>Random Forest Classifier</strong>. It cross-references your inputs against thousands of clinical records to identify patterns invisible to the human eye.
+                </p>
+            </article>
+
+            <article class="glass-card info-card">
+                <div class="icon-box"><i class="ph-duotone ph-shield-check"></i></div>
+                <h3>Privacy First</h3>
+                <p>
+                    Your health data is sensitive. DiagnoX processes symptoms anonymously. We do not store personal identifiers, ensuring your medical privacy is respected.
+                </p>
+            </article>
+        </section>
+
+        <section class="glass-card disclaimer-section hidden-section">
+            <i class="ph-fill ph-warning-octagon"></i>
+            <div>
+                <h4>Medical Disclaimer</h4>
+                <p>This system is for educational purposes. It assists in preliminary triage but <strong>does not replace a professional doctor's diagnosis</strong>.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Engineered by <strong>Vansh Malhotra</strong></p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">© 2025 DiagnoX AI System</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

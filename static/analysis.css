@@ -1,0 +1,219 @@
+.analysis-page { max-width: 900px; }
+
+.analysis-header {
+    margin-bottom: 1.5rem;
+}
+
+.analysis-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.analysis-header h1 i { color: #1D7DFC; }
+
+.analysis-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.analysis-card { padding: 1.75rem !important; }
+
+.form-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    background: #fff;
+    color: #0f172a;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #1D7DFC;
+    box-shadow: 0 0 0 3px rgba(29, 125, 252, 0.12);
+}
+
+.choices__inner {
+    background: #fff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    min-height: 48px !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.choices__list--dropdown {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+}
+
+.choices__item--choice.is-highlighted {
+    background: #1D7DFC !important;
+}
+
+.btn-analyze {
+    width: 100%;
+    padding: 0.9rem 1.25rem;
+    background: #1D7DFC;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+}
+
+.btn-analyze:hover { background: #1568d4; }
+
+.btn-analyze:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.spinner.hidden { display: none; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#result-container {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    border-left: 4px solid #1D7DFC;
+}
+
+#result-container.hidden { display: none; }
+
+.result-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+}
+
+.predicted-disease {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0.35rem 0 0.75rem;
+}
+
+.result-suggestion {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.result-error { color: #c62828; font-size: 0.9rem; }
+
+.result-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-report-dl,
+.btn-report-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-report-dl {
+    background: #1D7DFC;
+    color: #fff;
+}
+
+.btn-report-link {
+    color: #1D7DFC;
+    border: 1px solid #1D7DFC;
+}
+
+#result-container .pill {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    vertical-align: middle;
+}
+
+#result-container .pill-low { background: #e8f5e9; color: #2e7d32; }
+#result-container .pill-medium { background: #fff3e0; color: #e65100; }
+#result-container .pill-high { background: #ffebee; color: #c62828; }
+
+.advice-block {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #1D7DFC;
+}
+
+.advice-block h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.advice-block p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.home-advice {
+    background: #f0fdf4;
+    border-left-color: #22c55e;
+}
+
+.home-advice h4 { color: #15803d; }
+
+.doctor-advice {
+    background: #eff6ff;
+    border-left-color: #1D7DFC;
+}
+
+.doctor-advice h4 { color: #1d4ed8; }

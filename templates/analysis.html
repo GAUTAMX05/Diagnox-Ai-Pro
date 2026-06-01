@@ -1,0 +1,51 @@
+{% extends 'base_app.html' %}
+{% block title %}DiagnoX AI Pro — Symptom Analysis{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='analysis.css') }}">
+{% endblock %}
+{% block content %}
+<section class="analysis-page">
+    <div class="analysis-header">
+        <h1><i class="ph-fill ph-crosshair"></i> Symptom Analysis</h1>
+        <p>Select symptoms and severity to run AI-powered clinical triage.</p>
+    </div>
+
+    <div class="analysis-card panel">
+        <form id="symptom-form" aria-label="Symptom Analyzer Form">
+            <div class="form-grid">
+                <div class="form-group full-width">
+                    <label for="patient_name" class="form-label">Patient Name (optional)</label>
+                    <input type="text" id="patient_name" name="patient_name" placeholder="e.g. Sarah Miller" class="text-input">
+                </div>
+                <div class="form-group full-width">
+                    <label for="symptoms" class="form-label">Select Symptoms</label>
+                    <select name="symptoms" id="symptoms" multiple required>
+                        {% for symptom in symptoms %}
+                        <option value="{{ symptom }}">{{ symptom.replace('_', ' ') | title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="severity" class="form-label">Severity Level</label>
+                    <select name="severity" id="severity" required>
+                        <option value="" disabled>Select Intensity</option>
+                        <option value="mild">Mild</option>
+                        <option value="moderate" selected>Moderate</option>
+                        <option value="severe">Severe</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="predict-btn" class="btn-analyze">
+                <span class="btn-text"><i class="ph ph-stethoscope"></i> Analyze Health Data</span>
+                <div class="spinner hidden"></div>
+            </button>
+        </form>
+        <div id="result-container" class="hidden" role="status"></div>
+    </div>
+</section>
+{% endblock %}
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src="{{ url_for('static', filename='analysis.js') }}"></script>
+{% endblock %}

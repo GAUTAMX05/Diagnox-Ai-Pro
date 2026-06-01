@@ -1,0 +1,361 @@
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.page-header h1 i { color: #1D7DFC; }
+
+.page-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.btn-page-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.15rem;
+    background: #1D7DFC;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-page-primary:hover { background: #1568d4; }
+
+.btn-page-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.15rem;
+    background: #fff;
+    color: #1D7DFC;
+    border: 1px solid #1D7DFC;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-page-outline:hover { background: rgba(29, 125, 252, 0.06); }
+
+.btn-sm { padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+
+.badge-count {
+    font-size: 0.8rem;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+}
+
+.empty-cell {
+    text-align: center;
+    color: #64748b;
+    padding: 2rem !important;
+}
+
+.empty-cell a { color: #1D7DFC; }
+
+.pill-critical { background: #f1f5f9; color: #475569; }
+
+.row-actions {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+}
+
+.btn-sm.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #64748b;
+    background: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-sm.btn-outline:hover {
+    border-color: #1D7DFC;
+    color: #1D7DFC;
+}
+
+.btn-sm.btn-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    background: #fff;
+    cursor: pointer;
+}
+
+.inline-form { display: inline; }
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+.report-card { padding: 1.25rem !important; }
+
+.report-card-top {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.report-card-top h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.report-meta {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.report-preview {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+.report-suggestion {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.report-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem !important;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #cbd5e1;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: #64748b;
+    margin-bottom: 1.25rem;
+}
+
+.form-panel { padding: 1.5rem !important; }
+
+.form-panel h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row-inline {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.form-row-inline input {
+    flex: 1;
+    min-width: 160px;
+    padding: 0.7rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.form-row-inline input:focus {
+    outline: none;
+    border-color: #1D7DFC;
+    box-shadow: 0 0 0 3px rgba(29, 125, 252, 0.12);
+}
+
+.settings-panel {
+    max-width: 560px;
+    padding: 1.75rem !important;
+}
+
+.settings-section {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.settings-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 1rem;
+}
+
+.settings-section h2 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.field-group {
+    margin-bottom: 1rem;
+}
+
+.field-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.field-group input,
+.field-group select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.checkbox-row input {
+    width: 18px;
+    height: 18px;
+    accent-color: #1D7DFC;
+}
+
+.flash-danger { background: #fef2f2; color: #b91c1c; }
+.flash-warning { background: #fffbeb; color: #b45309; }
+
+.header-actions-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.btn-danger-text {
+    color: #dc2626 !important;
+    border-color: #fecaca !important;
+}
+
+.btn-danger-text:hover {
+    background: #fef2f2 !important;
+}
+
+.profile-photo-section {
+    margin-bottom: 0 !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.profile-photo-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.profile-preview {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.profile-photo-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.btn-upload {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-upload input[type="file"] {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.upload-form {
+    margin: 0;
+    position: relative;
+}
+
+.upload-status {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0.35rem 0 0;
+    min-height: 1.2em;
+}
+
+.hint {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.analysis-page .text-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}

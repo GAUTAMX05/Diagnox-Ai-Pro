@@ -1,0 +1,97 @@
+{% extends 'base_app.html' %}
+{% block title %}DiagnoX AI Pro — Dashboard{% endblock %}
+{% block content %}
+<section class="welcome-banner">
+    <div class="welcome-text">
+        <h1>👋 Good Morning, Dr. {{ settings.display_name }}!</h1>
+        <p>Ready to analyze symptoms with AI?</p>
+    </div>
+    <div class="welcome-visual" aria-hidden="true">
+        <div class="robot-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/Tarikul-Islam-Anik/Animated-Fluent-Emojis@master/Emojis/People/Robot.png" alt="" class="robot-img" width="110" height="110">
+        </div>
+        <div class="welcome-deco"><i class="ph-fill ph-heartbeat"></i></div>
+    </div>
+</section>
+
+<section class="stats-row">
+    <article class="stat-card card-blue">
+        <div class="stat-icon"><i class="ph-fill ph-file-plus"></i></div>
+        <h3>Start New Analysis</h3>
+        <p>Begin a new symptom analysis</p>
+        <a href="/analysis" class="stat-btn btn-blue">Start Analysis →</a>
+    </article>
+    <article class="stat-card card-teal">
+        <div class="stat-icon"><i class="ph-fill ph-files"></i></div>
+        <h3>Previous Reports</h3>
+        <p>View and download previous analyses</p>
+        <a href="/reports" class="stat-btn btn-teal">View Reports →</a>
+    </article>
+    <article class="stat-card card-purple">
+        <div class="stat-icon"><i class="ph-fill ph-chart-pie-slice"></i></div>
+        <h3>AI Accuracy</h3>
+        <p class="stat-big purple">94.7%</p>
+        <p class="stat-meta">Model accuracy this month</p>
+        <svg class="sparkline purple" viewBox="0 0 120 32" preserveAspectRatio="none">
+            <polyline fill="none" stroke="#8B5CF6" stroke-width="2" points="0,28 20,22 40,24 60,14 80,18 100,8 120,12"/>
+        </svg>
+    </article>
+    <article class="stat-card card-orange">
+        <div class="stat-icon"><i class="ph-fill ph-user"></i></div>
+        <h3>Saved Records</h3>
+        <p class="stat-big orange">{{ saved_count }}</p>
+        <p class="stat-meta">Total saved patient records</p>
+        <svg class="sparkline orange" viewBox="0 0 120 32" preserveAspectRatio="none">
+            <polyline fill="none" stroke="#F97316" stroke-width="2" points="0,20 20,24 40,16 60,22 80,12 100,18 120,10"/>
+        </svg>
+    </article>
+</section>
+
+<section class="bottom-row">
+    <div class="panel table-panel">
+        <div class="panel-header">
+            <h2>Recent Analyses</h2>
+            <a href="/history" class="link-view">View All</a>
+        </div>
+        {% set history_items = recent_history %}
+        {% set show_actions = false %}
+        {% include 'partials/history_table.html' %}
+    </div>
+
+    <div class="panel insights-panel">
+        <div class="panel-header">
+            <h2>Quick Insights</h2>
+            <select class="period-select" aria-label="Period">
+                <option>This Month</option>
+                <option>Last Month</option>
+            </select>
+        </div>
+        <div class="insights-body">
+            <div class="donut-wrap">
+                <svg class="donut-chart" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle cx="60" cy="60" r="48" fill="none" stroke="#e2e8f0" stroke-width="14"/>
+                    {% for seg in donut_segments %}
+                    <circle cx="60" cy="60" r="48" fill="none" stroke="{{ seg.color }}" stroke-width="14"
+                        stroke-dasharray="{{ seg.dash }} 301.6"
+                        stroke-dashoffset="{{ seg.offset }}" transform="rotate(-90 60 60)"/>
+                    {% endfor %}
+                </svg>
+                <div class="donut-center">
+                    <strong>{{ insights.total }}</strong>
+                    <span>Total Analyses</span>
+                </div>
+            </div>
+            <ul class="legend">
+                <li><span class="dot teal"></span> Low Risk <strong>{{ insights.low }}%</strong></li>
+                <li><span class="dot orange"></span> Medium Risk <strong>{{ insights.medium }}%</strong></li>
+                <li><span class="dot red"></span> High Risk <strong>{{ insights.high }}%</strong></li>
+                <li><span class="dot gray"></span> Critical <strong>{{ insights.critical }}%</strong></li>
+            </ul>
+        </div>
+        <div class="insight-info">
+            <i class="ph-fill ph-info"></i>
+            <p>Total <strong>{{ insights.total }}</strong> analyses completed this month <span class="trend-up">↗ 18% more than last month</span></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

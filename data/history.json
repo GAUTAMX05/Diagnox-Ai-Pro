@@ -1,0 +1,91 @@
+{
+  "test": [],
+  "admin": [],
+  "Vansh": [],
+  "Harshit ": [],
+  "gautam": [
+    {
+      "id": "4433887b-2d77-4678-a426-9c3f7a1dfcfd",
+      "patient": "ravi",
+      "initials": "RA",
+      "avatar_color": "teal",
+      "date": "Jun 01, 2026",
+      "symptoms_count": 3,
+      "risk": "High",
+      "risk_class": "high",
+      "status": "Completed",
+      "prediction": "Hyperthyroidism",
+      "severity": "severe",
+      "symptoms": [
+        "acidity",
+        "acute_liver_failure",
+        "abnormal_menstruation"
+      ],
+      "suggestion": "\"Requires medical treatment, which may include anti-thyroid medications, radioiodine therapy, or surgery. Consult an endocrinologist.\""
+    },
+    {
+      "id": "c27bab57-690a-4a2e-9cb2-dadb26a6f773",
+      "patient": "ravi",
+      "initials": "RA",
+      "avatar_color": "teal",
+      "date": "Jun 01, 2026",
+      "symptoms_count": 4,
+      "risk": "Medium",
+      "risk_class": "medium",
+      "status": "Completed",
+      "prediction": "Paralysis (brain hemorrhage)",
+      "severity": "moderate",
+      "symptoms": [
+        "acidity",
+        "anxiety",
+        "acute_liver_failure",
+        "altered_sensorium"
+      ],
+      "suggestion": "\"This is a medical emergency. Call emergency services immediately. Time is critical for treatment.\""
+    },
+    {
+      "id": "774bfff5-ccd6-4832-8b2e-c600f2a97c76",
+      "patient": "Arvind",
+      "initials": "AR",
+      "avatar_color": "green",
+      "date": "Jun 01, 2026",
+      "symptoms_count": 5,
+      "risk": "Medium",
+      "risk_class": "medium",
+      "status": "Completed",
+      "prediction": "Paralysis (brain hemorrhage)",
+      "severity": "moderate",
+      "symptoms": [
+        "acidity",
+        "anxiety",
+        "knee_pain",
+        "altered_sensorium",
+        "blackheads"
+      ],
+      "suggestion": "\"This is a medical emergency. Call emergency services immediately. Time is critical for treatment.\"",
+      "home_remedy": "This is a medical emergency. Call emergency services immediately. Time is critical for treatment.",
+      "doctor_advice": "Clinical recommendations based on AI triage:\n\n- Primary assessment: This is a medical emergency. Call emergency services immediately. Time is critical for treatment.\n\n- Schedule an in-person or telehealth consultation with a licensed physician for examination, vitals, and confirmatory tests.\n- Seek urgent/emergency care immediately if you experience chest pain, severe breathlessness, confusion, persistent high fever, or rapid worsening.\n- Documented severity: Moderate. Triage risk level: Medium.\n- Do not start, stop, or change prescription medication without medical supervision."
+    },
+    {
+      "id": "59da9c2e-5b38-4551-8055-f7edc5027819",
+      "patient": "Arvind",
+      "initials": "AR",
+      "avatar_color": "green",
+      "date": "Jun 01, 2026",
+      "symptoms_count": 3,
+      "risk": "Medium",
+      "risk_class": "medium",
+      "status": "Completed",
+      "prediction": "Acne",
+      "severity": "moderate",
+      "symptoms": [
+        "acidity",
+        "anxiety",
+        "blackheads"
+      ],
+      "suggestion": "\"Maintain good skin hygiene. Use over-the-counter topical treatments with benzoyl peroxide or salicylic acid. Consult a dermatologist if persistent.\"",
+      "home_remedy": "Maintain good skin hygiene. Use over-the-counter topical treatments with benzoyl peroxide or salicylic acid. Consult a dermatologist if persistent.",
+      "doctor_advice": "Clinical recommendations based on AI triage:\n\n- Primary assessment: Maintain good skin hygiene. Use over-the-counter topical treatments with benzoyl peroxide or salicylic acid. Consult a dermatologist if persistent.\n\n- Schedule an in-person or telehealth consultation with a licensed physician for examination, vitals, and confirmatory tests.\n- Seek urgent/emergency care immediately if you experience chest pain, severe breathlessness, confusion, persistent high fever, or rapid worsening.\n- Documented severity: Moderate. Triage risk level: Medium.\n- Do not start, stop, or change prescription medication without medical supervision."
+    }
+  ]
+}

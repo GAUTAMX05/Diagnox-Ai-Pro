@@ -1,0 +1,65 @@
+{% extends 'base_app.html' %}
+{% block title %}DiagnoX AI Pro — Saved Records{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1><i class="ph-fill ph-folder"></i> Saved Records</h1>
+        <p>Manage saved patient profiles and clinical notes.</p>
+    </div>
+</section>
+
+<div class="panel form-panel">
+    <h2>Add Patient Record</h2>
+    <form method="POST" action="/saved-records" class="inline-record-form">
+        <div class="form-row-inline">
+            <input type="text" name="patient" placeholder="Patient name" required>
+            <input type="text" name="notes" placeholder="Notes (optional)">
+            <button type="submit" class="btn-page-primary"><i class="ph ph-plus"></i> Save</button>
+        </div>
+    </form>
+</div>
+
+<div class="panel" style="margin-top: 1.25rem;">
+    <div class="panel-header">
+        <h2>Saved Patients</h2>
+        <span class="badge-count">{{ records|length }} records</span>
+    </div>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Date Saved</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if records %}
+                {% for r in records %}
+                <tr>
+                    <td>
+                        <span class="patient-cell">
+                            <span class="avatar-sm {{ r.avatar_color }}">{{ r.initials }}</span>
+                            {{ r.patient }}
+                        </span>
+                    </td>
+                    <td>{{ r.date }}</td>
+                    <td>{{ r.notes or '—' }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('delete_record', record_id=r.id) }}" class="inline-form" onsubmit="return confirm('Delete this record?');">
+                            <button type="submit" class="btn-sm btn-danger" title="Delete"><i class="ph ph-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="4" class="empty-cell">No saved records. Add a patient above or save from History/Reports.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{
+  "gautam": [
+    {
+      "id": "b7afc375-1f2d-43a4-8666-68e9d01385b6",
+      "title": "Analysis completed",
+      "message": "Arvind: Acne (Medium risk)",
+      "link": "/reports",
+      "entry_id": "59da9c2e-5b38-4551-8055-f7edc5027819",
+      "read": false,
+      "created_at": "2026-06-01T20:58:47.693654",
+      "time": "Jun 01, 08:58 PM"
+    },
+    {
+      "id": "8c54dedb-5a77-40ad-a6da-fe2a25d80aa2",
+      "title": "Analysis completed",
+      "message": "Arvind: Paralysis (brain hemorrhage) (Medium risk)",
+      "link": "/reports",
+      "entry_id": "774bfff5-ccd6-4832-8b2e-c600f2a97c76",
+      "read": false,
+      "created_at": "2026-06-01T20:58:36.534666",
+      "time": "Jun 01, 08:58 PM"
+    }
+  ]
+}

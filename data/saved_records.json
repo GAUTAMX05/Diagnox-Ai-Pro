@@ -1,0 +1,12 @@
+{
+  "gautam": [
+    {
+      "id": "31844c31-bcb7-4b06-8c87-b5839c0c4ff2",
+      "patient": "ravi",
+      "initials": "RA",
+      "avatar_color": "teal",
+      "notes": "Diagnosis: Hyperthyroidism. Risk: High.",
+      "date": "Jun 01, 2026"
+    }
+  ]
+}

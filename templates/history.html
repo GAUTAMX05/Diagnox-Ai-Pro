@@ -1,0 +1,27 @@
+{% extends 'base_app.html' %}
+{% block title %}DiagnoX AI Pro — History{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1><i class="ph-fill ph-clock-counter-clockwise"></i> Analysis History</h1>
+        <p>Full timeline of all symptom analyses you've completed.</p>
+    </div>
+    <div class="header-actions-row">
+        <a href="/analysis" class="btn-page-primary"><i class="ph ph-plus"></i> New Analysis</a>
+        {% if history_items %}
+        <form method="POST" action="/history/clear-all" onsubmit="return confirm('Delete ALL analyses? This cannot be undone.');">
+            <button type="submit" class="btn-page-outline btn-danger-text"><i class="ph ph-trash"></i> Clear All</button>
+        </form>
+        {% endif %}
+    </div>
+</section>
+
+<div class="panel">
+    <div class="panel-header">
+        <h2>All Analyses</h2>
+        <span class="badge-count">{{ history_items|length }} total</span>
+    </div>
+    {% set show_actions = true %}
+    {% include 'partials/history_table.html' %}
+</div>
+{% endblock %}

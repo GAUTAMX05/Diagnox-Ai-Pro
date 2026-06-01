@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagnoX AI Pro — Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="page-bg"></div>
+    <header class="top-bar">
+        <div class="top-bar-spacer"></div>
+        <div class="top-bar-actions">
+            <div class="theme-toggle" role="group" aria-label="Theme">
+                <button type="button" class="theme-btn active"><i class="ph ph-sun"></i></button>
+                <button type="button" class="theme-btn"><i class="ph ph-moon"></i></button>
+            </div>
+            <button type="button" class="btn-deploy"><i class="ph ph-rocket-launch"></i> Deploy</button>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <div class="login-shell">
+            <section class="brand-panel">
+                <div class="brand-logo-row">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                            <path d="M24 8C20 8 17 11 17 15V22H14C12 22 10 24 10 26V30C10 32 12 34 14 34H17V38C17 40 19 42 21 42H27C29 42 31 40 31 38V34H34C36 34 38 32 38 30V26C38 24 36 22 34 22H31V15C31 11 28 8 24 8Z" fill="#1D7DFC"/>
+                            <circle cx="34" cy="14" r="6" fill="#00B8D4"/>
+                            <path d="M32 14L33.5 15.5L36 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text-wrap">
+                        <h1 class="logo-title"><span class="logo-dark">DiagnoX</span> <span class="logo-blue">AI Pro</span></h1>
+                        <span class="verified-badge"><i class="ph-fill ph-check-circle"></i></span>
+                    </div>
+                </div>
+                <p class="logo-tagline">AI-Powered Clinical Symptom Analysis</p>
+                <h2 class="headline">Smarter <span class="accent">Analysis.</span><br>Better <span class="accent">Healthcare.</span></h2>
+                <p class="headline-sub">Create your account to access clinical-grade AI symptom analysis and secure patient records.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon teal"><i class="ph-fill ph-shield-check"></i></div>
+                        <div><strong>HIPAA Compliant</strong><p>Your data is encrypted and secured</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon blue"><i class="ph-fill ph-lightning"></i></div>
+                        <div><strong>Instant Results</strong><p>AI analysis in seconds</p></div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon blue-doc"><i class="ph-fill ph-file-text"></i></div>
+                        <div><strong>Clinical Grade</strong><p>Professional PDF reports</p></div>
+                    </div>
+                </div>
+                <p class="security-note"><i class="ph ph-lock-simple"></i> Your health data is 100% secure and private</p>
+            </section>
+
+            <section class="auth-panel">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <span class="wave">👋</span>
+                        <h2>Create Account</h2>
+                        <p>Sign up to access your dashboard</p>
+                    </div>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                        <p class="flash flash-{{ category }}">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <form class="auth-form" action="{{ url_for('signup') }}" method="POST">
+                        <div class="field">
+                            <label for="username">Username</label>
+                            <div class="input-wrap">
+                                <i class="ph ph-user"></i>
+                                <input type="text" id="username" name="username" placeholder="Your username" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <div class="input-wrap">
+                                <i class="ph ph-envelope-simple"></i>
+                                <input type="email" id="email" name="email" placeholder="you@healthcare.com" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <div class="input-wrap">
+                                <i class="ph ph-lock-simple"></i>
+                                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-signin"><i class="ph ph-user-plus"></i> Create Account</button>
+                    </form>
+                    <p class="auth-footer-link">Already have an account? <a href="{{ url_for('login') }}">Sign In</a></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <span>© 2025 DiagnoX AI Pro. All rights reserved.</span>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
+</body>
+</html>

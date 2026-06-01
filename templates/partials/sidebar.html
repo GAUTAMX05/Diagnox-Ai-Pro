@@ -1,0 +1,47 @@
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <div class="sidebar-logo">
+            <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M20 6C17 6 14 9 14 12V18H11C9 18 7 20 7 22V25C7 27 9 29 11 29H14V32C14 34 16 36 18 36H22C24 36 26 34 26 32V29H29C31 29 33 27 33 25V22C33 20 31 18 29 18H26V12C26 9 23 6 20 6Z" fill="#1D7DFC"/>
+            </svg>
+        </div>
+        <div>
+            <strong class="brand-name">DiagnoX AI Pro</strong>
+            <span class="brand-sub">AI-Powered Healthcare</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="/home" class="nav-item{% if active_page == 'dashboard' %} active{% endif %}">
+            <i class="ph{% if active_page == 'dashboard' %}-fill{% endif %} ph-house"></i> Dashboard
+        </a>
+        <a href="/analysis" class="nav-item{% if active_page == 'analysis' %} active{% endif %}">
+            <i class="ph{% if active_page == 'analysis' %}-fill{% endif %} ph-crosshair"></i> Symptom Analysis
+        </a>
+        <a href="/history" class="nav-item{% if active_page == 'history' %} active{% endif %}">
+            <i class="ph{% if active_page == 'history' %}-fill{% endif %} ph-clock-counter-clockwise"></i> History
+        </a>
+        <a href="/reports" class="nav-item{% if active_page == 'reports' %} active{% endif %}">
+            <i class="ph{% if active_page == 'reports' %}-fill{% endif %} ph-file-text"></i> Reports
+        </a>
+        <a href="/saved-records" class="nav-item{% if active_page == 'saved_records' %} active{% endif %}">
+            <i class="ph{% if active_page == 'saved_records' %}-fill{% endif %} ph-folder"></i> Saved Records
+        </a>
+        <a href="/settings" class="nav-item{% if active_page == 'settings' %} active{% endif %}">
+            <i class="ph{% if active_page == 'settings' %}-fill{% endif %} ph-gear"></i> Settings
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="security-card">
+            <i class="ph-fill ph-shield-check"></i>
+            <div>
+                <strong>Your Data is Safe</strong>
+                <p>We follow HIPAA-compliant security standards.</p>
+            </div>
+        </div>
+        <a href="/logout" class="nav-logout">
+            <i class="ph ph-sign-out"></i> Logout
+        </a>
+    </div>
+</aside>

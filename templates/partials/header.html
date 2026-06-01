@@ -1,0 +1,52 @@
+<header class="top-header">
+    <div class="search-bar">
+        <i class="ph ph-magnifying-glass"></i>
+        <input type="search" placeholder="Search anything..." aria-label="Search" id="global-search">
+    </div>
+    <div class="header-right">
+        <div class="notif-wrap">
+            <button type="button" class="notif-btn" id="notif-toggle" aria-label="Notifications" aria-expanded="false">
+                <i class="ph ph-bell"></i>
+                {% set unread = unread_count|default(0) %}
+                {% if unread > 0 %}
+                <span class="badge" id="notif-badge">{{ unread }}</span>
+                {% else %}
+                <span class="badge hidden" id="notif-badge">0</span>
+                {% endif %}
+            </button>
+            <div class="notif-dropdown hidden" id="notif-dropdown">
+                <div class="notif-dropdown-header">
+                    <strong>Notifications</strong>
+                    {% if unread > 0 %}
+                    <form method="POST" action="/notifications/mark-all-read" class="inline-form" id="mark-all-read-form">
+                        <button type="submit" class="notif-mark-all">Mark all read</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <ul class="notif-list" id="notif-list">
+                    {% if notifications|default([]) %}
+                    {% for n in notifications|default([]) %}
+                    <li class="notif-item{% if not n.read %} unread{% endif %}" data-id="{{ n.id }}">
+                        <a href="{{ n.link }}" class="notif-link">
+                            <strong>{{ n.title }}</strong>
+                            <p>{{ n.message }}</p>
+                            <span class="notif-time">{{ n.time }}</span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                    {% else %}
+                    <li class="notif-empty">No notifications yet.</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <a href="/settings" class="user-profile">
+            <img src="{{ settings.profile_url }}" alt="Dr. {{ settings.display_name }}" class="avatar" id="header-avatar">
+            <div class="user-info">
+                <strong>Dr. {{ settings.display_name }}</strong>
+                <span>{{ settings.role }}</span>
+            </div>
+            <i class="ph ph-caret-down"></i>
+        </a>
+    </div>
+</header>

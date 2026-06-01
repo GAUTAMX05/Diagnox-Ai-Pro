@@ -1,0 +1,55 @@
+{% extends 'base_app.html' %}
+{% block title %}DiagnoX AI Pro — Reports{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1><i class="ph-fill ph-file-text"></i> Previous Reports</h1>
+        <p>View and download clinical analysis reports from completed sessions.</p>
+    </div>
+    {% if history_items %}
+    <div class="header-actions-row">
+        <form method="POST" action="/history/clear-all" onsubmit="return confirm('Delete ALL reports and analyses? This cannot be undone.');">
+            <button type="submit" class="btn-page-outline btn-danger-text"><i class="ph ph-trash"></i> Clear All</button>
+        </form>
+    </div>
+    {% endif %}
+</section>
+
+{% if history_items %}
+<div class="reports-grid">
+    {% for item in history_items %}
+    <article class="report-card panel">
+        <div class="report-card-top">
+            <span class="avatar-sm {{ item.avatar_color }}">{{ item.initials }}</span>
+            <div>
+                <h3>{{ item.patient }}</h3>
+                <p class="report-meta">{{ item.date }} · {{ item.symptoms_count }} symptoms · <span class="pill pill-{{ item.risk_class }}">{{ item.risk }}</span></p>
+            </div>
+        </div>
+        <div class="report-preview">
+            <strong>Diagnosis:</strong> {{ item.prediction }}
+        </div>
+        <p class="report-suggestion">{{ item.suggestion }}</p>
+        <div class="report-actions">
+            <a href="{{ url_for('download_report', entry_id=item.id) }}" class="btn-page-primary btn-sm">
+                <i class="ph ph-file-pdf"></i> Download PDF Report
+            </a>
+            <form method="POST" action="{{ url_for('save_from_history', entry_id=item.id) }}" class="inline-form">
+                <button type="submit" class="btn-page-outline btn-sm"><i class="ph ph-folder-plus"></i> Save Record</button>
+            </form>
+            <form method="POST" action="/history/delete/{{ item.id }}" class="inline-form" onsubmit="return confirm('Delete this report?');">
+                <button type="submit" class="btn-page-outline btn-sm btn-danger-text"><i class="ph ph-trash"></i> Delete</button>
+            </form>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+{% else %}
+<div class="panel empty-state">
+    <i class="ph ph-file-text"></i>
+    <h3>No reports yet</h3>
+    <p>Complete a symptom analysis to generate your first report.</p>
+    <a href="/analysis" class="btn-page-primary">Start Analysis</a>
+</div>
+{% endif %}
+{% endblock %}

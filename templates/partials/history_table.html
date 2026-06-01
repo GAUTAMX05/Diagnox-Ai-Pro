@@ -1,0 +1,55 @@
+<div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Symptoms</th>
+                <th>Risk Level</th>
+                <th>Status</th>
+                {% if show_actions %}<th>Actions</th>{% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% if history_items %}
+            {% for item in history_items %}
+            <tr>
+                <td>
+                    <span class="patient-cell">
+                        <span class="avatar-sm {{ item.avatar_color }}">{{ item.initials }}</span>
+                        {{ item.patient }}
+                    </span>
+                </td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.symptoms_count }}</td>
+                <td><span class="pill pill-{{ item.risk_class }}">{{ item.risk }}</span></td>
+                <td><span class="status-done">{{ item.status }}</span></td>
+                {% if show_actions %}
+                <td class="row-actions">
+                    <a href="{{ url_for('download_report', entry_id=item.id) }}" class="btn-sm btn-outline" title="Download PDF report">
+                        <i class="ph ph-file-pdf"></i>
+                    </a>
+                    <form method="POST" action="{{ url_for('save_from_history', entry_id=item.id) }}" class="inline-form">
+                        <button type="submit" class="btn-sm btn-outline" title="Save to records">
+                            <i class="ph ph-folder-plus"></i>
+                        </button>
+                    </form>
+                    <form method="POST" action="/history/delete/{{ item.id }}" class="inline-form" onsubmit="return confirm('Delete this analysis?');">
+                        <button type="submit" class="btn-sm btn-danger" title="Delete analysis">
+                            <i class="ph ph-trash"></i>
+                        </button>
+                    </form>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="{{ 6 if show_actions else 5 }}" class="empty-cell">
+                    No analyses yet. <a href="/analysis">Start your first analysis</a>.
+                </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
